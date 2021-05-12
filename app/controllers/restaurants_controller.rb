@@ -6,16 +6,14 @@ class RestaurantsController < ApplicationController
     filter_by_query if params[:q].present?
     filter_by_city if params[:city].present?
     filter_by_category if params[:category].present?
-    render json: @restaurants
+    @restaurants
   end
 
   def show
-
   end
 
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
-    render json: @restaurant
   end
 
   def filter_by_query
